@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.emp.model.EmpVO" table="emp2" >
+        
+        <id name="empno" column="empno">
+            <generator class="sequence" >
+              <param name="sequence">emp2_seq</param>
+            </generator>  
+        </id>
+        
+        <property name="ename" column="ename" />
+        <property name="job" column="job" />
+        <property name="hiredate" column="hiredate" />
+        <property name="sal" column="sal" />
+        <property name="comm" column="comm" />
+        
+        <many-to-one name="deptVO" class="com.dept.model.DeptVO" lazy="false">
+            <column name="deptno" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>
+
